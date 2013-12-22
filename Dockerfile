@@ -7,10 +7,6 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu raring main universe" > /etc/apt/
 RUN apt-get update
 RUN apt-get -y upgrade
 
-# Keep upstart from complaining
-RUN dpkg-divert --local --rename --add /sbin/initctl
-RUN ln -s /bin/true /sbin/initctl
-
 # Useful base packages
 RUN locale-gen en_GB en_GB.UTF-8
 
