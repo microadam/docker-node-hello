@@ -18,8 +18,5 @@ RUN nave usemain stable
 # App
 ADD . /src
 
-# Install app dependencies
-RUN cd /src; npm install
-
 EXPOSE 6500
 CMD ["node", "/src/index.js"]
