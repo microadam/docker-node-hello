@@ -8,6 +8,7 @@ RUN apt-get update
 RUN apt-get -y upgrade
 
 # Useful base packages
+RUN apt-get -y install curl
 RUN locale-gen en_GB en_GB.UTF-8
 
 # Install node
