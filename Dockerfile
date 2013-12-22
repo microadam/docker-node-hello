@@ -1,21 +1,28 @@
-# VERSION 0.2
-# DOCKER-VERSION 0.3.4
-# To build:
-# 1. Install docker (http://docker.io)
-# 2. Checkout source: git@github.com:gasi/docker-node-hello.git
-# 3. Build container: docker build .
+# DOCKER-VERSION 0.7.2
 
-FROM    centos:6.4
+FROM stackbrew/ubuntu:13.04
+MAINTAINER Adam Duncan <adam.jd@gmail.com>
 
-# Enable EPEL for Node.js
-RUN     rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-# Install Node.js and npm
-RUN     yum install -y npm
+RUN echo "deb http://archive.ubuntu.com/ubuntu raring main universe" > /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get -y upgrade
+
+# Keep upstart from complaining
+RUN dpkg-divert --local --rename --add /sbin/initctl
+RUN ln -s /bin/true /sbin/initctl
+
+# Useful base packages
+RUN locale-gen en_GB en_GB.UTF-8
+
+# Install node
+RUN curl https://raw.github.com/isaacs/nave/master/nave.sh > /bin/nave && chmod a+x /bin/nave
+RUN nave usemain stable
 
 # App
 ADD . /src
+
 # Install app dependencies
 RUN cd /src; npm install
 
-EXPOSE  8080
+EXPOSE 6500
 CMD ["node", "/src/index.js"]
