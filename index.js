@@ -8,17 +8,17 @@ var PORT = process.env.PORT || DEFAULT_PORT;
 var app = express()
   , gracefullyExiting = false
 
-// Return 502 while the server is shutting down
+// Return 503 while the server is shutting down
 app.use(function (req, res, next) {
   if (!gracefullyExiting) {
     return next()
   }
   res.set('Connection', 'close')
-  res.send(502, 'Server is in the process of restarting.')
+  res.send(503, 'Server is in the process of restarting.')
 })
 
 app.get('/', function (req, res) {
-  res.send('Hello Adam\n');
+  res.send('Hello Dave\n');
 });
 
 var server = app.listen(PORT)
