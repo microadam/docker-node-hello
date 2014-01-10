@@ -7,6 +7,6 @@
     "test": "echo \"dummy tests passed!\" && exit 0"
   },
   "dependencies": {
-    "express": "3.2.4"
+    "express": "3.2.5"
   }
 }
