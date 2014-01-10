@@ -1,7 +1,7 @@
 {
   "name": "docker-hello-world",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node.js Hello World app",
   "scripts": {
     "test": "echo \"dummy tests passed!\" && exit 0"
