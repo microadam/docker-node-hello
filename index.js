@@ -2,7 +2,10 @@ var express = require('express');
 
 // Constants
 var DEFAULT_PORT = 6500;
-var PORT = process.env.PORT || DEFAULT_PORT;
+var PORT = process.env.PORT0 || DEFAULT_PORT;
+
+console.log(PORT)
+console.log(process.env.NODE_ENV)
 
 // App
 var app = express()
