@@ -25,7 +25,7 @@ app.get('/', function (req, res) {
 });
 
 var server = app.listen(PORT)
-console.log('Running on http://localhost:' + PORT);
+console.log('Running at http://localhost:' + PORT);
 
 // Graceful shutdown taken from: http://blog.argteam.com/
 process.on('SIGTERM', function () {
