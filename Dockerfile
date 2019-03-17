@@ -1,12 +1,4 @@
-FROM ubuntu:18.04
-MAINTAINER Adam Duncan <adam.jd@gmail.com>
-
-# Useful base packages
-RUN apt-get update && apt-get -y install curl
-
-# Install node
-RUN curl https://raw.github.com/isaacs/nave/master/nave.sh > /bin/nave && chmod a+x /bin/nave
-RUN nave usemain stable
+FROM node:10.15.3-alpine
 
 ADD package.json /src/package.json
 
