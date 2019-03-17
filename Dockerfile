@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 MAINTAINER Adam Duncan <adam.jd@gmail.com>
 
 # Useful base packages
-RUN apt-get -y install curl
+RUN apt-get update && apt-get -y install curl
 RUN locale-gen en_GB en_GB.UTF-8
 
 # Install node
