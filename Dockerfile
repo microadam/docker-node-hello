@@ -1,11 +1,5 @@
-# DOCKER-VERSION 0.7.2
-
-FROM stackbrew/ubuntu:13.04
+FROM ubuntu:18.04
 MAINTAINER Adam Duncan <adam.jd@gmail.com>
-
-RUN echo "deb http://archive.ubuntu.com/ubuntu raring main universe" > /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get -y upgrade
 
 # Useful base packages
 RUN apt-get -y install curl
