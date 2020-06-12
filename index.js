@@ -21,7 +21,7 @@ app.use(function (req, res, next) {
 })
 
 app.get('/', function (req, res) {
-  res.send('Hello Dave\n');
+  res.send('Hello David\n');
 });
 
 var server = app.listen(PORT)
